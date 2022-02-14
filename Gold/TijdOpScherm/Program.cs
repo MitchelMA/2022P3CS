@@ -11,18 +11,8 @@ namespace TijdOpScherm
             void setFore()
             {
                 int rand = new Random(DateTime.Now.Millisecond).Next(3);
-                switch (rand)
-                {
-                    case 0:
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        break;
-                    case 1:
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        break;
-                    case 2:
-                        Console.ForegroundColor = ConsoleColor.Blue;
-                        break;
-                }
+                ConsoleColor[] colors = { ConsoleColor.Red, ConsoleColor.Green, ConsoleColor.Blue };
+                Console.ForegroundColor = colors[rand];
             }
 
             // loop om te herhalen
