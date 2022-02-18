@@ -1,6 +1,4 @@
 using System;
-// gebruik eigen namespace
-using TicTacToe.Back;
 
 namespace TicTacToe.Front
 {
@@ -18,10 +16,11 @@ namespace TicTacToe.Front
         public static void StartTurn()
         {
             Console.Clear();
+            Console.WriteLine($"Beurt: {Program.Turn + 1}");
             Draw();
             Console.WriteLine($"Speler {Program.Pieces[Program.Turn % 2]} is nu aan de beurt");
             Console.WriteLine($"Op welke plek wil je een \"{Program.Pieces[Program.Turn % 2]}\" plaatsen? (1-9)");
-            InputHandler.HandleInput(Console.ReadKey());
+            Back.InputHandler.HandleInput(Console.ReadKey());
         }
     }
 }

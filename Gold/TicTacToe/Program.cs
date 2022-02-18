@@ -1,7 +1,4 @@
 ﻿using System;
-// gebruik van eigen namespaces
-using TicTacToe.Front;
-using TicTacToe.Back;
 
 namespace TicTacToe
 {
@@ -12,7 +9,22 @@ namespace TicTacToe
         public static int Turn = 0;
         static void Main(string[] args)
         {
-            Display.StartTurn();
+            char inp = 'n';
+            do
+            {
+                Reset();
+                Front.Display.StartTurn();
+                Console.WriteLine("Wil je nog een potje spelen? (y | n)");
+                inp = (char)Console.Read();
+            } while (inp != 'n');
+        }
+        public static void Reset()
+        {
+            for (int i = 0; i < Board.Length; i++)
+            {
+                Board[i] = ' ';
+            }
+            Turn = 0;
         }
     }
 }
