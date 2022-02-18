@@ -9,14 +9,15 @@ namespace TicTacToe
         public static int Turn = 0;
         static void Main(string[] args)
         {
-            char inp = 'n';
+            string inp = "n";
             do
             {
+                inp = "n";
                 Reset();
                 Front.Display.StartTurn();
                 Console.WriteLine("Wil je nog een potje spelen? (y | n)");
-                inp = (char)Console.Read();
-            } while (inp != 'n');
+                inp = Console.ReadLine();
+            } while (inp.ToLower() != "n");
         }
         public static void Reset()
         {

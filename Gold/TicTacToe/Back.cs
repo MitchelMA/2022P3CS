@@ -6,6 +6,22 @@ namespace TicTacToe.Back
     {
         public static void HandleInput(ConsoleKeyInfo input)
         {
+
+            // to quit at any time
+            if (input.KeyChar == 'q')
+            {
+                Console.Clear();
+                Console.WriteLine("Dus je wilt stoppen? (y | n)");
+                string inp = Console.ReadLine().ToLower();
+                if (inp != "y")
+                {
+                    Front.Display.StartTurn();
+                    return;
+                }
+                // make the program stop with an exit code of 0;
+                Environment.Exit(0);
+            }
+
             // account for offset: ('1' -> 49)
             int intInput = (int)input.KeyChar - 48;
 
@@ -57,21 +73,21 @@ namespace TicTacToe.Back
                 (char)0  // gets used as a character
             };
 
-            string statusString = "";
             // check horizontal
             for (int column = 0; column < 3; ++column)
             {
-                statusString += Program.Board[3 * column];
-                statusString += Program.Board[3 * column + 1];
-                statusString += Program.Board[3 * column + 2];
+                string columnString = "";
+                columnString += Program.Board[3 * column];
+                columnString += Program.Board[3 * column + 1];
+                columnString += Program.Board[3 * column + 2];
 
-                if (statusString == "OOO")
+                if (columnString == "OOO")
                 {
                     Status[0] = (char)1;
                     Status[1] = 'O';
                     return Status;
                 }
-                else if (statusString == "XXX")
+                else if (columnString == "XXX")
                 {
                     Status[0] = (char)1;
                     Status[1] = 'X';
@@ -80,23 +96,24 @@ namespace TicTacToe.Back
             }
 
             // check vertical
-            statusString = "";
             for (int row = 0; row < 3; ++row)
             {
-                statusString += Program.Board[0 + row];
-                statusString += Program.Board[3 + row];
-                statusString += Program.Board[6 + row];
+                string rowString = "";
+                rowString += Program.Board[0 + row];
+                rowString += Program.Board[3 + row];
+                rowString += Program.Board[6 + row];
 
-                if (statusString == "OOO")
+                if (rowString == "OOO")
                 {
                     Status[0] = (char)1;
                     Status[1] = 'O';
                     return Status;
                 }
-                else if (statusString == "XXX")
+                else if (rowString == "XXX")
                 {
                     Status[0] = (char)1;
                     Status[1] = 'X';
+                    return Status;
                 }
             }
 
