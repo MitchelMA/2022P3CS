@@ -5,6 +5,8 @@ using System.Text.Json;
 
 namespace Dungeon_Crawler.Structure
 {
+    // Incluce json class
+    #region Include;
     public class IncludesRootobject
     {
         public Include[] Includes { get; set; }
@@ -12,11 +14,24 @@ namespace Dungeon_Crawler.Structure
 
     public class Include
     {
-        public string LevelName { get; set; }
         public string LevelPath { get; set; }
         public string LevelData { get; set; }
     }
+    #endregion;
 
+    // player json class
+    #region Player
+    public class PLayerRootObject
+    {
+        public int HP { get; set; }
+        public int[] Damage { get; set; }
+        public int Xp_needed_next { get; set; }
+        public float Xp_needed_multiplier { get; set; }
+    }
+    #endregion;
+
+    // Serializer
+    #region Serializer
     public static class Serializer
     {
         public static T Deserialize<T>(string inFile)
@@ -45,4 +60,5 @@ namespace Dungeon_Crawler.Structure
             writer.Close();
         }
     }
+    #endregion;
 }

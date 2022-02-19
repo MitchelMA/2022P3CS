@@ -1,0 +1,14 @@
+{
+    "Name": "Level 1",
+    "BeginPosition": [1, 1],
+    "Width": 10,
+    "Monsters": [
+        {
+            "Difficulty": "easy",
+            "position": {
+                "x": 1,
+                "y": 2
+            }
+        }
+    ]
+}
