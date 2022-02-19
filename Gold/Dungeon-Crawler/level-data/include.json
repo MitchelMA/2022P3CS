@@ -1,0 +1,9 @@
+{
+    "Includes": [
+        {
+        "LevelName": "Level 1",
+        "LevelPath": "./Level1.txt",
+        "LevelData": "./Level1.json"
+        }
+    ]
+}
