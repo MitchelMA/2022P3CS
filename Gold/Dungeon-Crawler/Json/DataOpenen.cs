@@ -24,5 +24,12 @@ namespace Dungeon_Crawler.JsonOpener
 
             return Serializer.Deserialize<PLayerRootObject>(path);
         }
+        public static LevelRootObject OpenLevelData(string path)
+        {
+            Directory.SetCurrentDirectory(ExecutableLocation);
+            Directory.SetCurrentDirectory(PathToBase);
+
+            return Serializer.Deserialize<LevelRootObject>(path);
+        }
     }
 }

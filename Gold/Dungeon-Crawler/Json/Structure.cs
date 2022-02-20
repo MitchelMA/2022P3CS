@@ -30,6 +30,23 @@ namespace Dungeon_Crawler.Structure
     }
     #endregion;
 
+    // level json class
+    #region level
+    public class LevelRootObject
+    {
+        public string Name { get; set; }
+        public int[] BeginPosition { get; set; }
+        public int Width { get; set; }
+        public MonsterLevelObject[] Monsters { get; set; }
+
+    }
+    public class MonsterLevelObject
+    {
+        public string Difficulty { get; set; }
+        public int[] Position { get; set; }
+    }
+    #endregion;
+
     // Serializer
     #region Serializer
     public static class Serializer
