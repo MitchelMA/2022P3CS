@@ -3,6 +3,10 @@
         {
             "LevelPath": "./levels/level1.txt",
             "LevelData": "./level-data/level1.json"
+        },
+        {
+            "LevelPath": "./levels/level2.txt",
+            "LevelData":"./level-data/level2.json"
         }
     ]
 }

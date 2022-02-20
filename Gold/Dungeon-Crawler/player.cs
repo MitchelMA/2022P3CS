@@ -1,4 +1,5 @@
 using System;
+using Dungeon_Crawler.Scenes;
 
 namespace Dungeon_Crawler.Player
 {
@@ -28,6 +29,19 @@ namespace Dungeon_Crawler.Player
             // set the xp data
             this.XpNecUp = XpNecUp;
             this.XpNecUpMult = XpNecUpMult;
+        }
+        public void Move(int x, int y)
+        {
+            Position[0] += x;
+            Position[1] += y;
+            InSceneIndex = Position[1] * Scene.CurrentScene.SceneWidth + Position[1] + Position[0];
+        }
+
+        public void CheckMove(int x, int y, string level)
+        {
+            int nextPosIndex = (Position[1] + y) * Scene.CurrentScene.SceneWidth + Position[1] + y + Position[0] + x;
+            Console.WriteLine(InSceneIndex);
+            Console.WriteLine(nextPosIndex);
         }
     }
 }

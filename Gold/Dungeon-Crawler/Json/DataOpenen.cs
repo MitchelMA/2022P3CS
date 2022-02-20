@@ -31,5 +31,13 @@ namespace Dungeon_Crawler.JsonOpener
 
             return Serializer.Deserialize<LevelRootObject>(path);
         }
+
+        public static string OpenSceneContent(string path)
+        {
+            Directory.SetCurrentDirectory(ExecutableLocation);
+            Directory.SetCurrentDirectory(PathToBase);
+
+            return File.ReadAllText(path);
+        }
     }
 }
