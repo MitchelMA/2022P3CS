@@ -39,5 +39,13 @@ namespace Dungeon_Crawler.JsonOpener
 
             return File.ReadAllText(path);
         }
+
+        public static MonsterDataJson OpenMonsterData()
+        {
+            Directory.SetCurrentDirectory(ExecutableLocation);
+            Directory.SetCurrentDirectory(PathToBase);
+
+            return Serializer.Deserialize<MonsterDataJson>(@"./item-data/Monster.json");
+        }
     }
 }

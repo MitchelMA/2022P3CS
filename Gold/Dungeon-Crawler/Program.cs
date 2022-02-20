@@ -16,6 +16,25 @@ namespace Dungeon_Crawler
         {
             Setup();
         }
+        public static int[] KeyListen()
+        {
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.UpArrow:
+                    return new int[] { 0, -1 };
+                case ConsoleKey.RightArrow:
+                    return new int[] { 1, 0 };
+                case ConsoleKey.DownArrow:
+                    return new int[] { 0, 1 };
+                case ConsoleKey.LeftArrow:
+                    return new int[] { -1, 0 };
+                case ConsoleKey.Escape:
+                    Environment.Exit(0);
+                    return new int[] { 0, 0 };
+                default:
+                    return new int[] { 0, 0 };
+            }
+        }
         public static void Setup()
         {
             // open the include path
@@ -38,11 +57,25 @@ namespace Dungeon_Crawler
         }
         public static void GameLoop()
         {
-            // draw the items
-            string inScene = Scene.GetSceneContent();
-            inScene = inScene.ReplaceAt(GamePlayer.InSceneIndex, 1, "¶");
-            Console.WriteLine(inScene);
-            GamePlayer.CheckMove(0, 1, inScene);
+            do
+            {
+                // clear the console
+                Console.Clear();
+                // get the current scene
+                string inScene = Scene.GetSceneContent();
+                // draw doors
+                foreach (var door in Scene.CurrentScene.SceneDoors)
+                {
+                    inScene = inScene.ReplaceAt(door.PositionIndex, 1, "$");
+                }
+                // draw the player
+                inScene = inScene.ReplaceAt(GamePlayer.InSceneIndex, 1, "¶");
+                // display the scene
+                Console.WriteLine(inScene);
+                // listen to key-input;
+                int[] Listen = KeyListen();
+                GamePlayer.CheckMove(Listen[0], Listen[1], inScene);
+            } while (true);
         }
     }
     public static class StringModifier

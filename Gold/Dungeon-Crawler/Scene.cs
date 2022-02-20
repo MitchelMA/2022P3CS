@@ -1,5 +1,8 @@
 using System;
+using System.Linq;
+using System.Threading;
 using System.Collections.Generic;
+using Dungeon_Crawler.Items;
 
 namespace Dungeon_Crawler.Scenes
 {
@@ -10,6 +13,9 @@ namespace Dungeon_Crawler.Scenes
         public string SceneName { get; set; }
         public int SceneWidth;
         public int[] BeginPosition { get; }
+
+        // items in the scene
+        public List<Door> SceneDoors { get; } = new List<Door>();
         public static Dictionary<string, Scene> AllScenes { get; set; } = new Dictionary<string, Scene>();
         public static Scene CurrentScene { get; set; }
         public Scene(string DataPath, string FilePath)
@@ -22,6 +28,22 @@ namespace Dungeon_Crawler.Scenes
             this.SceneName = levelRoot.Name;
             this.SceneWidth = levelRoot.Width;
             this.BeginPosition = levelRoot.BeginPosition;
+
+            // set the items
+            // Door
+            if (levelRoot.Doors != null)
+            {
+                foreach (var door in levelRoot.Doors)
+                {
+                    this.SceneDoors.Add(new Door(door.Position, door.DestPosition, door.DestName, this.SceneWidth));
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Scene {this.SceneName} mist deuren!");
+                Thread.Sleep(1000);
+            }
+
             Scene.AllScenes.Add(this.SceneName, this);
         }
         public static string GetSceneContent()

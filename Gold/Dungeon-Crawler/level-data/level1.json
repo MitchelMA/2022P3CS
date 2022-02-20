@@ -2,6 +2,18 @@
     "Name": "Level 1",
     "BeginPosition": [1, 1],
     "Width": 52,
+    "Doors": [
+        {
+            "Position": [22, 8],
+            "DestPosition": [39, 5],
+            "DestName": "Level 1"
+        },
+        {
+            "Position": [38, 5],
+            "DestPosition": [21, 8],
+            "DestName": "Level 1"
+        }
+    ],
     "Monsters": [
         {
             "Difficulty": "easy",

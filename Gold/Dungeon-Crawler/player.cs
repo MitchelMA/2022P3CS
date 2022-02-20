@@ -1,5 +1,6 @@
 using System;
 using Dungeon_Crawler.Scenes;
+using Dungeon_Crawler.Items;
 
 namespace Dungeon_Crawler.Player
 {
@@ -36,12 +37,56 @@ namespace Dungeon_Crawler.Player
             Position[1] += y;
             InSceneIndex = Position[1] * Scene.CurrentScene.SceneWidth + Position[1] + Position[0];
         }
+        public void MoveTo(int x, int y)
+        {
+            Position[0] = x;
+            Position[1] = y;
+            InSceneIndex = Position[1] * Scene.CurrentScene.SceneWidth + Position[1] + Position[0];
+        }
 
         public void CheckMove(int x, int y, string level)
         {
             int nextPosIndex = (Position[1] + y) * Scene.CurrentScene.SceneWidth + Position[1] + y + Position[0] + x;
-            Console.WriteLine(InSceneIndex);
-            Console.WriteLine(nextPosIndex);
+            int[] Listen;
+            switch (level[nextPosIndex])
+            {
+
+                case '─':
+                    Listen = Program.KeyListen();
+                    CheckMove(Listen[0], Listen[1], level);
+                    return;
+                case '│':
+                    Listen = Program.KeyListen();
+                    CheckMove(Listen[0], Listen[1], level);
+                    return;
+                case '┌':
+                    Listen = Program.KeyListen();
+                    CheckMove(Listen[0], Listen[1], level);
+                    return;
+                case '┐':
+                    Listen = Program.KeyListen();
+                    CheckMove(Listen[0], Listen[1], level);
+                    return;
+                case '┘':
+                    Listen = Program.KeyListen();
+                    CheckMove(Listen[0], Listen[1], level);
+                    return;
+                case '└':
+                    Listen = Program.KeyListen();
+                    CheckMove(Listen[0], Listen[1], level);
+                    return;
+
+                // items
+                case '$':
+                    Door.CheckForPlayer(x, y);
+                    break;
+
+                // default case
+                default:
+                    Move(x, y);
+                    break;
+
+            }
         }
     }
 }

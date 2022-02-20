@@ -37,13 +37,32 @@ namespace Dungeon_Crawler.Structure
         public string Name { get; set; }
         public int[] BeginPosition { get; set; }
         public int Width { get; set; }
+        public DoorLevelObject[] Doors { get; set; }
         public MonsterLevelObject[] Monsters { get; set; }
 
+    }
+    public class DoorLevelObject
+    {
+        public int[] Position { get; set; }
+        public int[] DestPosition { get; set; }
+        public string DestName { get; set; }
     }
     public class MonsterLevelObject
     {
         public string Difficulty { get; set; }
         public int[] Position { get; set; }
+    }
+    #endregion;
+
+    #region MonsterData;
+    public class MonsterDataJson
+    {
+        public Dictionary<string, Monstertype> Data { get; set; }
+    }
+    public class Monstertype
+    {
+        public int HP { get; set; }
+        public int[] Damage { get; set; }
     }
     #endregion;
 
