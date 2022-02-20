@@ -14,6 +14,7 @@ namespace Dungeon_Crawler.Items
         private int[] Damage { get; }
         private int MaxHP { get; }
         private int CurrentHP { get; set; }
+        private int XpUp { get; } = 10;
 
         public Monster(int[] Position, string Type, int SceneWidth) : base(Position, SceneWidth)
         {
@@ -22,6 +23,8 @@ namespace Dungeon_Crawler.Items
             MaxHP = DifficultyTable[this.Type].HP;
             CurrentHP = MaxHP;
             Damage = DifficultyTable[this.Type].Damage;
+
+            XpUp = (int)(0.2 * (MaxHP + Damage[0] + Damage[1]));
         }
         public override void Interact()
         {
@@ -42,9 +45,10 @@ namespace Dungeon_Crawler.Items
             {
                 int monsterIndex = Scene.CurrentScene.SceneMonsters.IndexOf(this);
                 Scene.CurrentScene.SceneMonsters.RemoveAt(monsterIndex);
+                Console.WriteLine($"Verkregen XP: {XpUp}");
             }
 
-            Thread.Sleep(500);
+            Thread.Sleep(800);
         }
         public static void CheckForPlayer(int x, int y)
         {
