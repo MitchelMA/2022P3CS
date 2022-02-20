@@ -25,6 +25,7 @@ namespace Dungeon_Crawler.Items
                 if (Program.GamePlayer.Position[0] + x == door.Position[0] && Program.GamePlayer.Position[1] + y == door.Position[1])
                 {
                     door.Interact();
+                    break;
                 }
             }
         }

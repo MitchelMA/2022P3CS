@@ -16,7 +16,7 @@
     ],
     "Monsters": [
         {
-            "Difficulty": "easy",
+            "Difficulty": "medium",
             "Position": [1, 2]
         }
     ]

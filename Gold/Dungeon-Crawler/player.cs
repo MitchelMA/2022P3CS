@@ -80,6 +80,9 @@ namespace Dungeon_Crawler.Player
                 case '$':
                     Door.CheckForPlayer(x, y);
                     break;
+                case '@':
+                    Monster.CheckForPlayer(x, y);
+                    break;
 
                 // default case
                 default:

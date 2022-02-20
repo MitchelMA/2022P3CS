@@ -16,6 +16,7 @@ namespace Dungeon_Crawler.Scenes
 
         // items in the scene
         public List<Door> SceneDoors { get; } = new List<Door>();
+        public List<Monster> SceneMonsters { get; } = new List<Monster>();
         public static Dictionary<string, Scene> AllScenes { get; set; } = new Dictionary<string, Scene>();
         public static Scene CurrentScene { get; set; }
         public Scene(string DataPath, string FilePath)
@@ -41,6 +42,20 @@ namespace Dungeon_Crawler.Scenes
             else
             {
                 Console.WriteLine($"Scene {this.SceneName} mist deuren!");
+                Thread.Sleep(1000);
+            }
+
+            // Monster
+            if (levelRoot.Monsters != null)
+            {
+                foreach (var monster in levelRoot.Monsters)
+                {
+                    this.SceneMonsters.Add(new Monster(monster.Position, monster.Difficulty, this.SceneWidth));
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Scene {this.SceneName} mist monsters!");
                 Thread.Sleep(1000);
             }
 

@@ -68,6 +68,11 @@ namespace Dungeon_Crawler
                 {
                     inScene = inScene.ReplaceAt(door.PositionIndex, 1, "$");
                 }
+                // draw monsters
+                foreach (var monster in Scene.CurrentScene.SceneMonsters)
+                {
+                    inScene = inScene.ReplaceAt(monster.PositionIndex, 1, "@");
+                }
                 // draw the player
                 inScene = inScene.ReplaceAt(GamePlayer.InSceneIndex, 1, "¶");
                 // display the scene
