@@ -1,12 +1,12 @@
 {
     "Includes": [
         {
-            "LevelPath": "./levels/tutorial2.txt",
-            "LevelData": "./level-data/tutorial2.json"
-        },
-        {
             "LevelPath": "./levels/tutorial.txt",
             "LevelData": "./level-data/tutorial.json"
+        },
+        {
+            "LevelPath": "./levels/tutorial2.txt",
+            "LevelData": "./level-data/tutorial2.json"
         }
     ]
 }

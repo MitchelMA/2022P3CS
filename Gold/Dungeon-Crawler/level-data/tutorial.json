@@ -182,5 +182,10 @@
             "Size": "medium",
             "Position": [31, 14]
         }
-    ]
+    ],
+    "Traps": {
+        "groep1": [
+            [10, 19]
+        ]
+    }
 }

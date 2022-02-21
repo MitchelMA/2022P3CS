@@ -9,8 +9,8 @@
             "Damage": [5, 8]
         },
         "tutorial-boss": {
-            "HP": 150,
-            "Damage": [50, 70]
+            "HP": 100,
+            "Damage": [22, 27]
         }
     }
 }

@@ -9,6 +9,40 @@
             "DestName": "Tutorial Level"
         }
     ],
+    "Monsters":[
+        {
+            "Difficulty": "tutorial-boss",
+            "Position": [5, 5]
+        },
+        {
+            "Difficulty": "tutorial-boss",
+            "Position": [6, 5]
+        },
+        {
+            "Difficulty": "tutorial-boss",
+            "Position": [6, 6]
+        },
+        {
+            "Difficulty": "tutorial-boss",
+            "Position": [5, 4]
+        },
+        {
+            "Difficulty": "tutorial-boss",
+            "Position": [6, 4]
+        },
+        {
+            "Difficulty": "tutorial-boss",
+            "Position": [7, 4]
+        },
+        {
+            "Difficulty": "tutorial-boss",
+            "Position": [7, 5]
+        },
+        {
+            "Difficulty": "tutorial-boss",
+            "Position": [7, 6]
+        }
+    ],
     "Traps": {
         "groep2": [
             [22, 4],

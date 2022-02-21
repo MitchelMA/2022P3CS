@@ -119,7 +119,7 @@ namespace Dungeon_Crawler.Player
                     break;
                 case '*':
                     Trap.CheckForPlayer(x, y);
-                    Move(x, y);
+                    Move(x * 2, y * 2);
                     break;
                 case '!':
                     Program.Win();
