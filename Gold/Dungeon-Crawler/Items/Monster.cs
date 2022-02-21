@@ -46,6 +46,8 @@ namespace Dungeon_Crawler.Items
                 int monsterIndex = Scene.CurrentScene.SceneMonsters.IndexOf(this);
                 Scene.CurrentScene.SceneMonsters.RemoveAt(monsterIndex);
                 Console.WriteLine($"Verkregen XP: {XpUp}");
+
+                Program.GamePlayer.XpUp(XpUp);
             }
 
             Thread.Sleep(800);

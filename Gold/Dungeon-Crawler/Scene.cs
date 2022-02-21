@@ -17,6 +17,8 @@ namespace Dungeon_Crawler.Scenes
         // items in the scene
         public List<Door> SceneDoors { get; } = new List<Door>();
         public List<Monster> SceneMonsters { get; } = new List<Monster>();
+        public List<HealingBottle> SceneHeals { get; } = new List<HealingBottle>();
+        public List<ExperienceBottle> SceneXPs { get; } = new List<ExperienceBottle>();
         public static Dictionary<string, Scene> AllScenes { get; set; } = new Dictionary<string, Scene>();
         public static Scene CurrentScene { get; set; }
         public Scene(string DataPath, string FilePath)
@@ -56,6 +58,32 @@ namespace Dungeon_Crawler.Scenes
             else
             {
                 Console.WriteLine($"Scene {this.SceneName} mist monsters!");
+            }
+
+            // Healing Bottles
+            if (levelRoot.HealingBottles != null)
+            {
+                foreach (var heal in levelRoot.HealingBottles)
+                {
+                    this.SceneHeals.Add(new HealingBottle(heal.Position, heal.Size, this.SceneWidth));
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Scene {this.SceneName} mist healing bottles");
+            }
+
+            // experience bottles
+            if (levelRoot.ExperienceBottles != null)
+            {
+                foreach (var xp in levelRoot.ExperienceBottles)
+                {
+                    this.SceneXPs.Add(new ExperienceBottle(xp.Position, xp.Size, this.SceneWidth));
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Scene {this.SceneName} mist Experience bottles");
                 Thread.Sleep(500);
             }
 

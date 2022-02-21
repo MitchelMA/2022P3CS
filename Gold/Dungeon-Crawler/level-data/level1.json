@@ -18,6 +18,26 @@
         {
             "Difficulty": "demonstratie",
             "Position": [1, 2]
+        },
+        {
+            "Difficulty": "medium",
+            "Position": [2, 2]
+        },
+        {
+            "Difficulty": "medium",
+            "Position": [3, 2]
+        }
+    ],
+    "HealingBottles": [
+        {
+            "Size": "small",
+            "Position": [5, 5]
+        }
+    ],
+    "ExperienceBottles": [
+        {
+            "Size": "gigantisch",
+            "Position": [6, 6]
         }
     ]
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 using Dungeon_Crawler.Structure;
 using Dungeon_Crawler.JsonOpener;
 using Dungeon_Crawler.Player;
@@ -37,6 +38,9 @@ namespace Dungeon_Crawler
         }
         public static void Setup()
         {
+            // reset everything
+            Scene.AllScenes = new Dictionary<string, Scene>();
+            GamePlayer = null;
             // open the include path
             IncludesRootobject Includes = Opener.OpenInclude(IncludePath);
             foreach (var include in Includes.Includes)
@@ -49,7 +53,7 @@ namespace Dungeon_Crawler
             // open the player Path
             PLayerRootObject playerJson = Opener.OpenPlayer(PlayerDataPath);
             // initialize the global player
-            GamePlayer = new PlayerClass(playerJson.HP, Scene.AllScenes.First().Value.BeginPosition, playerJson.Damage, playerJson.Xp_needed_next, playerJson.Xp_needed_multiplier);
+            GamePlayer = new PlayerClass(playerJson.HP, Scene.AllScenes.First().Value.BeginPosition, playerJson.Damage, playerJson.Xp_needed_next);
             // set the right index of the player
             GamePlayer.Move(0, 0);
             // start the gameloop
@@ -61,6 +65,13 @@ namespace Dungeon_Crawler
             {
                 // clear the console
                 Console.Clear();
+                // print out data to the player
+                Console.WriteLine($"Position: {GamePlayer.Position[0]}, {GamePlayer.Position[1]}");
+                Console.WriteLine($"Scene: {Scene.CurrentScene.SceneName}");
+                Console.WriteLine($"Level: {GamePlayer.CurrentLvl}");
+                Console.WriteLine($"Damage: {GamePlayer.Damage[0]} - {GamePlayer.Damage[1]}");
+                Console.WriteLine($"HP: {GamePlayer.CurrentHP} / {GamePlayer.MaxHP}");
+                Console.WriteLine($"XP: {GamePlayer.CurrentXP} / {GamePlayer.XpNecUp * GamePlayer.CurrentLvl}");
                 // get the current scene
                 string inScene = Scene.GetSceneContent();
                 // draw doors
@@ -73,6 +84,16 @@ namespace Dungeon_Crawler
                 {
                     inScene = inScene.ReplaceAt(monster.PositionIndex, 1, "@");
                 }
+                // draw healing bottles
+                foreach (var heal in Scene.CurrentScene.SceneHeals)
+                {
+                    inScene = inScene.ReplaceAt(heal.PositionIndex, 1, "+");
+                }
+                // draw the experience bottles
+                foreach (var xp in Scene.CurrentScene.SceneXPs)
+                {
+                    inScene = inScene.ReplaceAt(xp.PositionIndex, 1, "&");
+                }
                 // draw the player
                 inScene = inScene.ReplaceAt(GamePlayer.InSceneIndex, 1, "¶");
                 // display the scene
@@ -80,7 +101,23 @@ namespace Dungeon_Crawler
                 // listen to key-input;
                 int[] Listen = KeyListen();
                 GamePlayer.CheckMove(Listen[0], Listen[1], inScene);
+
+                // check the player's status
+                if (GamePlayer.CheckHP())
+                {
+                    Console.Clear();
+                    Console.WriteLine("Helaas, je bent dood gegaan");
+                    break;
+                }
+
             } while (true);
+
+            Console.WriteLine("Wil je nog een keer spelen?");
+            string inp = Console.ReadLine();
+            if (inp.ToLower() != "n")
+            {
+                Setup();
+            }
         }
     }
     public static class StringModifier

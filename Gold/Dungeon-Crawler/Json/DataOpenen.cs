@@ -47,5 +47,21 @@ namespace Dungeon_Crawler.JsonOpener
 
             return Serializer.Deserialize<MonsterDataJson>(@"./item-data/Monster.json");
         }
+
+        public static HealingDataObject OpenHealingData()
+        {
+            Directory.SetCurrentDirectory(ExecutableLocation);
+            Directory.SetCurrentDirectory(PathToBase);
+
+            return Serializer.Deserialize<HealingDataObject>(@"./item-data/Healing.json");
+        }
+
+        public static ExperienceDataObject OpenExperienceData()
+        {
+            Directory.SetCurrentDirectory(ExecutableLocation);
+            Directory.SetCurrentDirectory(PathToBase);
+
+            return Serializer.Deserialize<ExperienceDataObject>(@"./item-data/Experience.json");
+        }
     }
 }

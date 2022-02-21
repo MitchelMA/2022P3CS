@@ -26,7 +26,6 @@ namespace Dungeon_Crawler.Structure
         public int HP { get; set; }
         public int[] Damage { get; set; }
         public int Xp_needed_next { get; set; }
-        public float Xp_needed_multiplier { get; set; }
     }
     #endregion;
 
@@ -39,6 +38,8 @@ namespace Dungeon_Crawler.Structure
         public int Width { get; set; }
         public DoorLevelObject[] Doors { get; set; }
         public MonsterLevelObject[] Monsters { get; set; }
+        public HealingLevelObject[] HealingBottles { get; set; }
+        public ExperienceLevelObject[] ExperienceBottles { get; set; }
 
     }
     public class DoorLevelObject
@@ -50,6 +51,16 @@ namespace Dungeon_Crawler.Structure
     public class MonsterLevelObject
     {
         public string Difficulty { get; set; }
+        public int[] Position { get; set; }
+    }
+    public class HealingLevelObject
+    {
+        public string Size { get; set; }
+        public int[] Position { get; set; }
+    }
+    public class ExperienceLevelObject
+    {
+        public string Size { get; set; }
         public int[] Position { get; set; }
     }
     #endregion;
@@ -66,6 +77,19 @@ namespace Dungeon_Crawler.Structure
     }
     #endregion;
 
+    #region HealingData
+    public class HealingDataObject
+    {
+        public Dictionary<string, int> Data { get; set; }
+    }
+    #endregion
+
+    #region ExperienceData
+    public class ExperienceDataObject
+    {
+        public Dictionary<string, int> Data { get; set; }
+    }
+    #endregion
     // Serializer
     #region Serializer
     public static class Serializer

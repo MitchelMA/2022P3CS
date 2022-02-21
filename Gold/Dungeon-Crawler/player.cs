@@ -12,10 +12,9 @@ namespace Dungeon_Crawler.Player
         public int MaxHP { get; set; }
         public int[] Damage { get; set; } = { 5, 10 };
         public int XpNecUp { get; } = 10;
-        public float XpNecUpMult { get; } = 1.2f;
         public int CurrentXP { get; set; } = 0;
         public int CurrentLvl { get; set; } = 1;
-        public PlayerClass(int MaxHP, int[] Position, int[] Damage, int XpNecUp, float XpNecUpMult)
+        public PlayerClass(int MaxHP, int[] Position, int[] Damage, int XpNecUp)
         {
             // set the hp
             this.MaxHP = MaxHP;
@@ -29,7 +28,27 @@ namespace Dungeon_Crawler.Player
 
             // set the xp data
             this.XpNecUp = XpNecUp;
-            this.XpNecUpMult = XpNecUpMult;
+        }
+
+        public void XpUp(int XpAmount)
+        {
+            CurrentXP += XpAmount;
+            if (CurrentXP < XpNecUp * CurrentLvl)
+                return;
+            LvlUp();
+        }
+        private void LvlUp()
+        {
+            while (CurrentXP >= XpNecUp * CurrentLvl)
+            {
+                Damage[0] += 5;
+                Damage[1] += 5;
+
+                CurrentHP = (int)(CurrentHP / (double)MaxHP * (MaxHP + 10));
+                MaxHP += 10;
+                CurrentXP -= XpNecUp * CurrentLvl;
+                CurrentLvl++;
+            }
         }
         public void Move(int x, int y)
         {
@@ -42,6 +61,11 @@ namespace Dungeon_Crawler.Player
             Position[0] = x;
             Position[1] = y;
             InSceneIndex = Position[1] * Scene.CurrentScene.SceneWidth + Position[1] + Position[0];
+        }
+
+        public bool CheckHP()
+        {
+            return CurrentHP <= 0;
         }
 
         public void CheckMove(int x, int y, string level)
@@ -82,6 +106,12 @@ namespace Dungeon_Crawler.Player
                     break;
                 case '@':
                     Monster.CheckForPlayer(x, y);
+                    break;
+                case '+':
+                    HealingBottle.CheckForPlayer(x, y);
+                    break;
+                case '&':
+                    ExperienceBottle.CheckForPlayer(x, y);
                     break;
 
                 // default case
