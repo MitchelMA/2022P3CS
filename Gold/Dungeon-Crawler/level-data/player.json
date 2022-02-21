@@ -1,5 +1,5 @@
 {
     "HP": 100,
-    "Damage": [15, 25],
+    "Damage": [10, 15],
     "Xp_needed_next": 10
 }

@@ -99,6 +99,10 @@ namespace Dungeon_Crawler.Player
                     Listen = Program.KeyListen();
                     CheckMove(Listen[0], Listen[1], level);
                     return;
+                case '#':
+                    Listen = Program.KeyListen();
+                    CheckMove(Listen[0], Listen[1], level);
+                    return;
 
                 // items
                 case '$':
@@ -112,6 +116,10 @@ namespace Dungeon_Crawler.Player
                     break;
                 case '&':
                     ExperienceBottle.CheckForPlayer(x, y);
+                    break;
+                case '*':
+                    Trap.CheckForPlayer(x, y);
+                    Move(x, y);
                     break;
                 case '!':
                     Program.Win();

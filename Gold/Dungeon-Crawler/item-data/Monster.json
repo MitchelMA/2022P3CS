@@ -1,16 +1,16 @@
 {
     "Data":{
-        "easy": {
-            "HP": 50,
-            "Damage": [10, 15]
+        "tutorial": {
+            "HP": 20,
+            "Damage": [2, 5]
         },
-        "medium": {
-            "HP": 80,
-            "Damage": [15, 20]
+        "tutorial-medium": {
+            "HP": 35,
+            "Damage": [5, 8]
         },
-        "demonstratie": {
-            "HP": 10,
-            "Damage": [1, 2]
+        "tutorial-boss": {
+            "HP": 150,
+            "Damage": [50, 70]
         }
     }
 }

@@ -94,6 +94,15 @@ namespace Dungeon_Crawler
                 {
                     inScene = inScene.ReplaceAt(xp.PositionIndex, 1, "&");
                 }
+                // draw the traps
+                foreach (var trap in Scene.CurrentScene.SceneTraps)
+                {
+                    if (trap.Activated)
+                        inScene = inScene.ReplaceAt(trap.PositionIndex, 1, "#");
+                    else
+                        inScene = inScene.ReplaceAt(trap.PositionIndex, 1, "*");
+                }
+
                 // draw the player
                 inScene = inScene.ReplaceAt(GamePlayer.InSceneIndex, 1, "¶");
                 // display the scene

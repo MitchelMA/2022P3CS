@@ -1,0 +1,17 @@
+{
+    "Name": "Tutorial Level 2",
+    "BeginPosition": [36, 2],
+    "Width": 39,
+    "Doors": [
+        {
+            "Position": [37, 2],
+            "DestPosition": [4, 19],
+            "DestName": "Tutorial Level"
+        }
+    ],
+    "Traps": [
+        {
+            "Position": [25, 3]
+        }
+    ]
+}

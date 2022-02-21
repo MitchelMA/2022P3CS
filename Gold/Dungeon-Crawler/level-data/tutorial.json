@@ -1,0 +1,186 @@
+{
+    "Name": "Tutorial Level",
+    "BeginPosition": [1, 2],
+    "Width": 35,
+    "Doors": [
+        {
+            "Position": [14, 2],
+            "DestPosition": [17, 7],
+            "DestName": "Tutorial Level"
+        },
+        {
+            "Position": [16, 7],
+            "DestPosition": [13, 2],
+            "DestName": "Tutorial Level"
+        },
+        {
+            "Position": [32, 9],
+            "DestPosition": [19, 13],
+            "DestName": "Tutorial Level"
+        },
+        {
+            "Position": [19, 12],
+            "DestPosition": [32, 8],
+            "DestName": "Tutorial Level"
+        },
+        {
+            "Position": [3, 19],
+            "DestPosition": [36, 2],
+            "DestName": "Tutorial Level 2"
+        }
+    ],
+    "Monsters": [
+        {
+            "Difficulty": "tutorial",
+            "Position": [20, 6]
+        },
+        {
+            "Difficulty": "tutorial",
+            "Position": [20, 8]
+        },
+        {
+            "Difficulty": "tutorial",
+            "Position": [22, 6]
+        },
+        {
+            "Difficulty": "tutorial",
+            "Position": [22, 8]
+        },
+        {
+            "Difficulty": "tutorial-medium",
+            "Position": [32, 8]
+        },
+        {
+            "Difficulty": "tutorial-medium",
+            "Position": [31, 8]
+        },
+        {
+            "Difficulty": "tutorial-medium",
+            "Position": [32, 7]
+        },
+        {
+            "Difficulty": "tutorial-medium",
+            "Position": [17, 13]
+        },
+        {
+            "Difficulty": "tutorial-medium",
+            "Position": [21, 13]
+        },
+        {
+            "Difficulty": "tutorial-medium",
+            "Position": [16, 14]
+        },
+        {
+            "Difficulty": "tutorial-medium",
+            "Position": [22, 14]
+        },
+        {
+            "Difficulty": "tutorial-medium",
+            "Position": [16, 15]
+        },
+        {
+            "Difficulty": "tutorial-medium",
+            "Position": [22, 15]
+        },
+        {
+            "Difficulty": "tutorial-medium",
+            "Position": [16, 16]
+        },
+        {
+            "Difficulty": "tutorial-medium",
+            "Position": [22, 16]
+        },
+        {
+            "Difficulty": "tutorial-medium",
+            "Position": [17, 17]
+        },
+        {
+            "Difficulty": "tutorial-medium",
+            "Position": [21, 17]
+        },
+        {
+            "Difficulty": "tutorial-medium",
+            "Position": [18, 18]
+        },
+        {
+            "Difficulty": "tutorial-medium",
+            "Position": [19, 18]
+        },
+        {
+            "Difficulty": "tutorial-medium",
+            "Position": [20, 18]
+        }
+    ],
+    "HealingBottles": [
+        {
+            "Size": "small",
+            "Position": [17, 6]
+        },
+        {
+            "Size":"small",
+            "Position": [17, 8]
+        },
+        {
+            "Size": "medium",
+            "Position": [18, 6]
+        },
+        {
+            "Size": "medium",
+            "Position": [18, 8]
+        },
+        {
+            "Size": "medium",
+            "Position": [32, 13]
+        },
+        {
+            "Size": "medium",
+            "Position": [31, 13]
+        },
+        {
+            "Size": "medium",
+            "Position": [7, 13]
+        },
+        {
+            "Size": "medium",
+            "Position": [6, 13]
+        },
+        {
+            "Size": "medium",
+            "Position": [32, 14]
+        },
+        {
+            "Size": "medium",
+            "Position": [6, 14]
+        },
+        {
+            "Size": "medium",
+            "Position": [32, 15]
+        },
+        {
+            "Size": "medium",
+            "Position": [31, 15]
+        },
+        {
+            "Size": "medium",
+            "Position": [7, 15]
+        },
+        {
+            "Size": "medium",
+            "Position": [6, 15]
+        }
+    ],
+    "ExperienceBottles": [
+        {
+            "Size": "small",
+            "Position": [32, 6]
+        },
+        {
+            "Size": "medium",
+            "Position": [7, 14]
+        },
+        {
+            "Size": "medium",
+            "Position": [31, 14]
+        }
+    ]
+}
