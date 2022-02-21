@@ -5,8 +5,8 @@ namespace Dungeon_Crawler.Items
 {
     public class Door : AItem
     {
-        public int[] DestPosition { get; } = new int[2];
-        public string DestName { get; }
+        private int[] DestPosition { get; } = new int[2];
+        private string DestName { get; }
 
         public Door(int[] Position, int[] DestPosition, string DestName, int SceneWidth) : base(Position, SceneWidth)
         {

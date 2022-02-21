@@ -42,7 +42,7 @@ namespace Dungeon_Crawler.Scenes
             else
             {
                 Console.WriteLine($"Scene {this.SceneName} mist deuren!");
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
             }
 
             // Monster
@@ -56,7 +56,7 @@ namespace Dungeon_Crawler.Scenes
             else
             {
                 Console.WriteLine($"Scene {this.SceneName} mist monsters!");
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
             }
 
             Scene.AllScenes.Add(this.SceneName, this);
