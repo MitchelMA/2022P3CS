@@ -40,7 +40,7 @@ namespace Dungeon_Crawler.Structure
         public MonsterLevelObject[] Monsters { get; set; }
         public HealingLevelObject[] HealingBottles { get; set; }
         public ExperienceLevelObject[] ExperienceBottles { get; set; }
-        public TrapLevelObject[] Traps { get; set; }
+        public Dictionary<string, int[][]> Traps { get; set; }
 
     }
     public class DoorLevelObject
@@ -62,10 +62,6 @@ namespace Dungeon_Crawler.Structure
     public class ExperienceLevelObject
     {
         public string Size { get; set; }
-        public int[] Position { get; set; }
-    }
-    public class TrapLevelObject
-    {
         public int[] Position { get; set; }
     }
     #endregion;

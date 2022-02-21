@@ -6,21 +6,31 @@ namespace Dungeon_Crawler.Items
     public class Trap : AItem
     {
         public bool Activated { get; set; } = false;
-        public Trap(int[] Position, int SceneWidth) : base(Position, SceneWidth) { }
+        private string GroupName { get; }
+        public Trap(int[] Position, string GroupName, int SceneWidth) : base(Position, SceneWidth)
+        {
+            this.GroupName = GroupName;
+        }
 
         public override void Interact()
         {
-            Activated = true;
+            foreach (var trap in Scene.CurrentScene.SceneTraps[GroupName])
+            {
+                trap.Activated = true;
+            }
         }
 
         public static void CheckForPlayer(int x, int y)
         {
-            foreach (var trap in Scene.CurrentScene.SceneTraps)
+            foreach (var trapGroup in Scene.CurrentScene.SceneTraps.Values)
             {
-                if (Program.GamePlayer.Position[0] + x == trap.Position[0] && Program.GamePlayer.Position[1] + y == trap.Position[1])
+                foreach (var trap in trapGroup)
                 {
-                    trap.Interact();
-                    break;
+                    if (Program.GamePlayer.Position[0] + x == trap.Position[0] && Program.GamePlayer.Position[1] + y == trap.Position[1])
+                    {
+                        trap.Interact();
+                        break;
+                    }
                 }
             }
         }

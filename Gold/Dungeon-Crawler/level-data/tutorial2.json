@@ -9,9 +9,11 @@
             "DestName": "Tutorial Level"
         }
     ],
-    "Traps": [
-        {
-            "Position": [25, 3]
-        }
-    ]
+    "Traps": {
+        "groep2": [
+            [22, 4],
+            [22, 5],
+            [22, 6]
+        ]
+    }
 }

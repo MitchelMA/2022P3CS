@@ -19,7 +19,7 @@ namespace Dungeon_Crawler.Scenes
         public List<Monster> SceneMonsters { get; } = new List<Monster>();
         public List<HealingBottle> SceneHeals { get; } = new List<HealingBottle>();
         public List<ExperienceBottle> SceneXPs { get; } = new List<ExperienceBottle>();
-        public List<Trap> SceneTraps { get; } = new List<Trap>();
+        public Dictionary<string, Trap[]> SceneTraps { get; } = new Dictionary<string, Trap[]>();
         public static Dictionary<string, Scene> AllScenes { get; set; } = new Dictionary<string, Scene>();
         public static Scene CurrentScene { get; set; }
         public Scene(string DataPath, string FilePath)
@@ -90,9 +90,16 @@ namespace Dungeon_Crawler.Scenes
             // traps
             if (levelRoot.Traps != null)
             {
-                foreach (var trap in levelRoot.Traps)
+                foreach (var trapGroup in levelRoot.Traps)
                 {
-                    this.SceneTraps.Add(new Trap(trap.Position, this.SceneWidth));
+                    int groupSize = trapGroup.Value.Length;
+                    Trap[] trapArr = new Trap[groupSize];
+
+                    for (int i = 0; i < groupSize; i++)
+                    {
+                        trapArr[i] = new Trap(trapGroup.Value[i], trapGroup.Key, this.SceneWidth);
+                    }
+                    this.SceneTraps.Add(trapGroup.Key, trapArr);
                 }
             }
             else
