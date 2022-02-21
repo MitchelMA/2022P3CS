@@ -117,7 +117,23 @@ namespace Dungeon_Crawler
             if (inp.ToLower() != "n")
             {
                 Setup();
+                return;
             }
+            Environment.Exit(0);
+
+        }
+        public static void Win()
+        {
+            Console.Clear();
+            Console.WriteLine("Je hebt gewonnen!");
+            Console.WriteLine("Wil je nog een keer spelen?");
+            string inp = Console.ReadLine();
+            if (inp.ToLower() != "n")
+            {
+                Setup();
+                return;
+            }
+            Environment.Exit(0);
         }
     }
     public static class StringModifier

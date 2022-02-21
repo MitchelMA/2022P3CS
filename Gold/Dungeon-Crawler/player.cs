@@ -113,6 +113,9 @@ namespace Dungeon_Crawler.Player
                 case '&':
                     ExperienceBottle.CheckForPlayer(x, y);
                     break;
+                case '!':
+                    Program.Win();
+                    break;
 
                 // default case
                 default:
