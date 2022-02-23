@@ -1,4 +1,3 @@
-using System;
 using Dungeon_Crawler.Scenes;
 using Dungeon_Crawler.Items;
 
@@ -30,6 +29,7 @@ namespace Dungeon_Crawler.Player
             this.XpNecUp = XpNecUp;
         }
 
+        // public method for giving the player xp
         public void XpUp(int XpAmount)
         {
             CurrentXP += XpAmount;
@@ -37,6 +37,7 @@ namespace Dungeon_Crawler.Player
                 return;
             LvlUp();
         }
+        // private method to lvl the player up
         private void LvlUp()
         {
             while (CurrentXP >= XpNecUp * CurrentLvl)
@@ -50,31 +51,31 @@ namespace Dungeon_Crawler.Player
                 CurrentLvl++;
             }
         }
+        // public method to move the player relative to its current position
         public void Move(int x, int y)
         {
             Position[0] += x;
             Position[1] += y;
             InSceneIndex = Position[1] * Scene.CurrentScene.SceneWidth + Position[1] + Position[0];
         }
+        // public method to move the player absolute to the current scene
         public void MoveTo(int x, int y)
         {
             Position[0] = x;
             Position[1] = y;
             InSceneIndex = Position[1] * Scene.CurrentScene.SceneWidth + Position[1] + Position[0];
         }
+        // public lambda method to check if the player's hp dropped below or is zero
+        public bool CheckHP => CurrentHP <= 0;
 
-        public bool CheckHP()
-        {
-            return CurrentHP <= 0;
-        }
-
+        // public method to check if a certain move is legal
         public void CheckMove(int x, int y, string level)
         {
             int nextPosIndex = (Position[1] + y) * Scene.CurrentScene.SceneWidth + Position[1] + y + Position[0] + x;
             int[] Listen;
             switch (level[nextPosIndex])
             {
-
+                // illegal move-cases
                 case '─':
                     Listen = Program.KeyListen();
                     CheckMove(Listen[0], Listen[1], level);
@@ -104,28 +105,34 @@ namespace Dungeon_Crawler.Player
                     CheckMove(Listen[0], Listen[1], level);
                     return;
 
-                // items
+                // item move-cases
+                // door
                 case '$':
                     Door.CheckForPlayer(x, y);
                     break;
+                // monster
                 case '@':
                     Monster.CheckForPlayer(x, y);
                     break;
+                // healing-bottle
                 case '+':
                     HealingBottle.CheckForPlayer(x, y);
                     break;
+                // experience-bottle
                 case '&':
                     ExperienceBottle.CheckForPlayer(x, y);
                     break;
+                // trap-activator
                 case '*':
                     Trap.CheckForPlayer(x, y);
                     Move(x * 2, y * 2);
                     break;
+                // flag
                 case '!':
                     Program.Win();
                     break;
 
-                // default case
+                // default case (player can just move)
                 default:
                     Move(x, y);
                     break;

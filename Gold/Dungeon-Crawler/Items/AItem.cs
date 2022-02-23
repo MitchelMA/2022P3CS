@@ -1,13 +1,12 @@
-using System;
-
+// abstract item template, every item has to use this template
 namespace Dungeon_Crawler.Items
 {
     public abstract class AItem
     {
-        public int[] Position { get; set; } = new int[2];
-        public int PositionIndex { get; set; }
-
-        public abstract void Interact();
+        protected int[] Position { get; } = new int[2];
+        public int PositionIndex { get; }
+        // protected method that will get called if the player interacts with the item
+        protected abstract void Interact();
 
         public AItem(int[] Position, int SceneWidth)
         {

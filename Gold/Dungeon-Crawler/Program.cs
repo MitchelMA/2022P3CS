@@ -10,13 +10,18 @@ namespace Dungeon_Crawler
 {
     class Program
     {
+        // Path to the "include.json" file
         private static string IncludePath = "./level-data/include.json";
+        // Path to the "player.json" file
         private static string PlayerDataPath = "./level-data/player.json";
+        // public static integer for the sleeptime after interactions with items
+        public static int SleepTime { get; } = 500;
         public static PlayerClass GamePlayer { get; set; }
         static void Main(string[] args)
         {
             Setup();
         }
+        // method that listens to keyinputs
         public static int[] KeyListen()
         {
             switch (Console.ReadKey(true).Key)
@@ -36,7 +41,8 @@ namespace Dungeon_Crawler
                     return new int[] { 0, 0 };
             }
         }
-        public static void Setup()
+        // setup method for starting the game
+        private static void Setup()
         {
             // reset everything
             Scene.AllScenes = new Dictionary<string, Scene>();
@@ -59,7 +65,9 @@ namespace Dungeon_Crawler
             // start the gameloop
             GameLoop();
         }
-        public static void GameLoop()
+
+        // loop method for running the gaem
+        private static void GameLoop()
         {
             do
             {
@@ -73,7 +81,7 @@ namespace Dungeon_Crawler
                 Console.WriteLine($"HP: {GamePlayer.CurrentHP} / {GamePlayer.MaxHP}");
                 Console.WriteLine($"XP: {GamePlayer.CurrentXP} / {GamePlayer.XpNecUp * GamePlayer.CurrentLvl}");
                 // get the current scene
-                string inScene = Scene.GetSceneContent();
+                string inScene = Scene.GetSceneContent;
                 // draw doors
                 foreach (var door in Scene.CurrentScene.SceneDoors)
                 {
@@ -115,7 +123,7 @@ namespace Dungeon_Crawler
                 GamePlayer.CheckMove(Listen[0], Listen[1], inScene);
 
                 // check the player's status
-                if (GamePlayer.CheckHP())
+                if (GamePlayer.CheckHP)
                 {
                     Console.Clear();
                     Console.WriteLine("Helaas, je bent dood gegaan");

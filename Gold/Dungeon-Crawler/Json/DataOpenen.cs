@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using System.Reflection;
 using Dungeon_Crawler.Structure;
@@ -7,8 +6,11 @@ namespace Dungeon_Crawler.JsonOpener
 {
     public static class Opener
     {
-        private static string ExecutableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        private static string PathToBase = @"..\..\..\";
+        // Private paths from the Executable to the base
+        private static string ExecutableLocation { get; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        private static string PathToBase { get; } = @"..\..\..\";
+
+        // Method to open the include file
         public static IncludesRootobject OpenInclude(string path)
         {
 
@@ -17,6 +19,7 @@ namespace Dungeon_Crawler.JsonOpener
 
             return Serializer.Deserialize<IncludesRootobject>(path);
         }
+        // Method to open the "player.json" file
         public static PLayerRootObject OpenPlayer(string path)
         {
             Directory.SetCurrentDirectory(ExecutableLocation);
@@ -24,6 +27,7 @@ namespace Dungeon_Crawler.JsonOpener
 
             return Serializer.Deserialize<PLayerRootObject>(path);
         }
+        // Method to open the Data of a scene/level
         public static LevelRootObject OpenLevelData(string path)
         {
             Directory.SetCurrentDirectory(ExecutableLocation);
@@ -31,7 +35,7 @@ namespace Dungeon_Crawler.JsonOpener
 
             return Serializer.Deserialize<LevelRootObject>(path);
         }
-
+        // Method to open the text-layout of a scene/level
         public static string OpenSceneContent(string path)
         {
             Directory.SetCurrentDirectory(ExecutableLocation);
@@ -39,7 +43,7 @@ namespace Dungeon_Crawler.JsonOpener
 
             return File.ReadAllText(path);
         }
-
+        // Method to open the data from "Monster.json" (Path is pre-determined)
         public static MonsterDataJson OpenMonsterData()
         {
             Directory.SetCurrentDirectory(ExecutableLocation);
@@ -47,7 +51,7 @@ namespace Dungeon_Crawler.JsonOpener
 
             return Serializer.Deserialize<MonsterDataJson>(@"./item-data/Monster.json");
         }
-
+        // Method to open the data from "Healing.json" (Path is pre-determined)
         public static HealingDataObject OpenHealingData()
         {
             Directory.SetCurrentDirectory(ExecutableLocation);
@@ -55,7 +59,7 @@ namespace Dungeon_Crawler.JsonOpener
 
             return Serializer.Deserialize<HealingDataObject>(@"./item-data/Healing.json");
         }
-
+        // Method to open the data from "Experience.json" (Path is pre-determined)
         public static ExperienceDataObject OpenExperienceData()
         {
             Directory.SetCurrentDirectory(ExecutableLocation);

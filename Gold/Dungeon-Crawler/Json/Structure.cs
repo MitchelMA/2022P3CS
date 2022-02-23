@@ -1,17 +1,16 @@
-using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Text.Json;
 
 namespace Dungeon_Crawler.Structure
 {
-    // Incluce json class
+    // Json class of the "include.json" file
     #region Include;
     public class IncludesRootobject
     {
         public Include[] Includes { get; set; }
     }
-
+    // class for every include entry in the "Includes" array of the RootObject
     public class Include
     {
         public string LevelPath { get; set; }
@@ -19,7 +18,7 @@ namespace Dungeon_Crawler.Structure
     }
     #endregion;
 
-    // player json class
+    // Json class of the player "player.json" file
     #region Player
     public class PLayerRootObject
     {
@@ -29,36 +28,45 @@ namespace Dungeon_Crawler.Structure
     }
     #endregion;
 
-    // level json class
+    // Json class of every level in the "include.json"
     #region level
     public class LevelRootObject
     {
         public string Name { get; set; }
         public int[] BeginPosition { get; set; }
         public int Width { get; set; }
+        // doors in the level
         public DoorLevelObject[] Doors { get; set; }
+        // monsters in the level
         public MonsterLevelObject[] Monsters { get; set; }
+        // healing-bottles in the level
         public HealingLevelObject[] HealingBottles { get; set; }
+        // experience-bottles in the level
         public ExperienceLevelObject[] ExperienceBottles { get; set; }
+        // traps in the level (gets read as a nested integer-array, so no extra class for traps)
         public Dictionary<string, int[][]> Traps { get; set; }
 
     }
+    // door class of the LevelRootObject
     public class DoorLevelObject
     {
         public int[] Position { get; set; }
         public int[] DestPosition { get; set; }
         public string DestName { get; set; }
     }
+    // monster class of the LevelRootObject
     public class MonsterLevelObject
     {
         public string Difficulty { get; set; }
         public int[] Position { get; set; }
     }
+    // healing-bottle class of the LevelRootObject
     public class HealingLevelObject
     {
         public string Size { get; set; }
         public int[] Position { get; set; }
     }
+    // Experience-bottle class of the LevelRootObject
     public class ExperienceLevelObject
     {
         public string Size { get; set; }
@@ -66,6 +74,7 @@ namespace Dungeon_Crawler.Structure
     }
     #endregion;
 
+    // Json clsas for monster difficulty data from the "Monster.json" file
     #region MonsterData;
     public class MonsterDataJson
     {
@@ -78,6 +87,7 @@ namespace Dungeon_Crawler.Structure
     }
     #endregion;
 
+    // Json class for the healing-bottles from the "Healing.json" file
     #region HealingData
     public class HealingDataObject
     {
@@ -85,12 +95,14 @@ namespace Dungeon_Crawler.Structure
     }
     #endregion
 
+    // Json class for the experience-bottles from the "Experience.json" file
     #region ExperienceData
     public class ExperienceDataObject
     {
         public Dictionary<string, int> Data { get; set; }
     }
     #endregion
+
     // Serializer
     #region Serializer
     public static class Serializer

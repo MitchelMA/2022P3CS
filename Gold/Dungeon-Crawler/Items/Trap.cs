@@ -1,4 +1,3 @@
-using System;
 using Dungeon_Crawler.Scenes;
 
 namespace Dungeon_Crawler.Items
@@ -12,7 +11,7 @@ namespace Dungeon_Crawler.Items
             this.GroupName = GroupName;
         }
 
-        public override void Interact()
+        protected override void Interact()
         {
             foreach (var trap in Scene.CurrentScene.SceneTraps[GroupName])
             {
