@@ -45,7 +45,6 @@ namespace Dungeon_Crawler.Structure
         public ExperienceLevelObject[] ExperienceBottles { get; set; }
         // traps in the level (gets read as a nested integer-array, so no extra class for traps)
         public Dictionary<string, int[][]> Traps { get; set; }
-
     }
     // door class of the LevelRootObject
     public class DoorLevelObject
@@ -80,28 +79,13 @@ namespace Dungeon_Crawler.Structure
     {
         public Dictionary<string, Monstertype> Data { get; set; }
     }
+    // Monstertype class, this determines the HP and Damage of the monster
     public class Monstertype
     {
         public int HP { get; set; }
         public int[] Damage { get; set; }
     }
     #endregion;
-
-    // Json class for the healing-bottles from the "Healing.json" file
-    #region HealingData
-    public class HealingDataObject
-    {
-        public Dictionary<string, int> Data { get; set; }
-    }
-    #endregion
-
-    // Json class for the experience-bottles from the "Experience.json" file
-    #region ExperienceData
-    public class ExperienceDataObject
-    {
-        public Dictionary<string, int> Data { get; set; }
-    }
-    #endregion
 
     // Serializer
     #region Serializer
