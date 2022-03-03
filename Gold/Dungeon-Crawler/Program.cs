@@ -13,7 +13,7 @@ namespace Dungeon_Crawler
         // Path to the "include.json" file
         private static string IncludePath = "./level-data/include.json";
         // Path to the "player.json" file
-        private static string PlayerDataPath = "./level-data/player.json";
+        private static string PlayerDataPath = "./item-data/player.json";
         // public static integer for the sleeptime after interactions with items
         public static int SleepTime { get; } = 500;
         public static PlayerClass GamePlayer { get; set; }

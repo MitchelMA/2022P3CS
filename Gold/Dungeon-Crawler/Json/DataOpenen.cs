@@ -44,28 +44,28 @@ namespace Dungeon_Crawler.JsonOpener
             return File.ReadAllText(path);
         }
         // Method to open the data from "Monster.json" (Path is pre-determined)
-        public static MonsterDataJson OpenMonsterData()
+        public static System.Collections.Generic.Dictionary<string, Monstertype> OpenMonsterData()
         {
             Directory.SetCurrentDirectory(ExecutableLocation);
             Directory.SetCurrentDirectory(PathToBase);
 
-            return Serializer.Deserialize<MonsterDataJson>(@"./item-data/Monster.json");
+            return Serializer.Deserialize<System.Collections.Generic.Dictionary<string, Monstertype>>(@"./item-data/Monster.json");
         }
         // Method to open the data from "Healing.json" (Path is pre-determined)
-        public static HealingDataObject OpenHealingData()
+        public static System.Collections.Generic.Dictionary<string, int> OpenHealingData()
         {
             Directory.SetCurrentDirectory(ExecutableLocation);
             Directory.SetCurrentDirectory(PathToBase);
 
-            return Serializer.Deserialize<HealingDataObject>(@"./item-data/Healing.json");
+            return Serializer.Deserialize<System.Collections.Generic.Dictionary<string, int>>(@"./item-data/Healing.json");
         }
         // Method to open the data from "Experience.json" (Path is pre-determined)
-        public static ExperienceDataObject OpenExperienceData()
+        public static System.Collections.Generic.Dictionary<string, int> OpenExperienceData()
         {
             Directory.SetCurrentDirectory(ExecutableLocation);
             Directory.SetCurrentDirectory(PathToBase);
 
-            return Serializer.Deserialize<ExperienceDataObject>(@"./item-data/Experience.json");
+            return Serializer.Deserialize<System.Collections.Generic.Dictionary<string, int>>(@"./item-data/Experience.json");
         }
     }
 }

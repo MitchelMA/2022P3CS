@@ -9,7 +9,7 @@ namespace Dungeon_Crawler.Items
     public class HealingBottle : AItem
     {
         // open the data table of the healing-bottles from the "Healing.json" 
-        private static Dictionary<string, int> DataTable { get; } = Opener.OpenHealingData().Data;
+        private static Dictionary<string, int> DataTable { get; } = Opener.OpenHealingData();
         private string Type { get; }
         private int HealingUp { get; }
 

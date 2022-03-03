@@ -10,7 +10,7 @@ namespace Dungeon_Crawler.Items
     public class Monster : AItem
     {
         // the difficulty table that gets initialized statically; this has all the data per difficulty
-        private static Dictionary<string, Monstertype> DifficultyTable { get; } = Opener.OpenMonsterData().Data;
+        private static Dictionary<string, Monstertype> DifficultyTable { get; } = Opener.OpenMonsterData();
         private string Type { get; }
         private int[] Damage { get; }
         private int MaxHP { get; }

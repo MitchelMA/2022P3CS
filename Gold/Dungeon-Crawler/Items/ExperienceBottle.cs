@@ -9,7 +9,7 @@ namespace Dungeon_Crawler.Items
     public class ExperienceBottle : AItem
     {
         // open the data table of the experience bottles from the "Experience.json" file
-        private static Dictionary<string, int> DataTable { get; } = Opener.OpenExperienceData().Data;
+        private static Dictionary<string, int> DataTable { get; } = Opener.OpenExperienceData();
         private string Type { get; }
         private int ExpUp { get; }
 
