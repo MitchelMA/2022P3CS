@@ -75,10 +75,6 @@ namespace Dungeon_Crawler.Structure
 
     // Json clsas for monster difficulty data from the "Monster.json" file
     #region MonsterData;
-    public class MonsterDataJson
-    {
-        public Dictionary<string, Monstertype> Data { get; set; }
-    }
     // Monstertype class, this determines the HP and Damage of the monster
     public class Monstertype
     {
