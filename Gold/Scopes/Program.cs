@@ -6,7 +6,6 @@ namespace Scopes
     {
         static void Main(string[] args)
         {
-            void testFunction()
             {
                 for (int i = 0; i < 10; i++)
                 {
@@ -16,7 +15,6 @@ namespace Scopes
                     }
                 }
             }
-            testFunction();
         }
     }
 }

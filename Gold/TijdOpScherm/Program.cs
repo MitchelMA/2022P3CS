@@ -5,15 +5,15 @@ namespace TijdOpScherm
 {
     class Program
     {
+        void SetFore()
+        {
+            int rand = new Random(DateTime.Now.Millisecond).Next(3);
+            ConsoleColor[] colors = { ConsoleColor.Red, ConsoleColor.Green, ConsoleColor.Blue };
+            Console.ForegroundColor = colors[rand];
+        }
         static void Main(string[] args)
         {
             // functie om de kleur te bepalen
-            void setFore()
-            {
-                int rand = new Random(DateTime.Now.Millisecond).Next(3);
-                ConsoleColor[] colors = { ConsoleColor.Red, ConsoleColor.Green, ConsoleColor.Blue };
-                Console.ForegroundColor = colors[rand];
-            }
 
             // loop om te herhalen
             do
@@ -22,7 +22,8 @@ namespace TijdOpScherm
                 Console.Clear();
 
                 // zet de tekstkleur
-                setFore();
+                Program program = new Program();
+                program.SetFore();
 
                 // print de tijd uit
                 Console.WriteLine(DateTime.Now);

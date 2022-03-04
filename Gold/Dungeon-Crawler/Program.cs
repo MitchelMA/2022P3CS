@@ -51,7 +51,7 @@ namespace Dungeon_Crawler
             IncludesRootobject Includes = Opener.OpenInclude(IncludePath);
             foreach (var include in Includes.Includes)
             {
-                Scene temp = new Scene(include.LevelData, include.LevelPath);
+                new Scene(include.LevelData, include.LevelPath);
             }
             // set the current scene to the first scene
             Scene.CurrentScene = Scene.AllScenes.First().Value;

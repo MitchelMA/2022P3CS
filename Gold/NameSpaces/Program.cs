@@ -1,7 +1,7 @@
 ﻿using System;
 // gebruik mijn eigen namespace
-using NameSpaces.extraOne;
-using NameSpaces.extraTwo;
+using NameSpaces.ExtraOne;
+using NameSpaces.ExtraTwo;
 
 namespace NameSpaces
 {

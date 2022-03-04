@@ -6,7 +6,7 @@ namespace Switch
     {
         static void Main(string[] args)
         {
-            void loop()
+            while (true)
             {
                 Console.WriteLine("Geef een getal (0 of 1): ");
                 string inp = Console.ReadLine();
@@ -28,15 +28,12 @@ namespace Switch
                             break;
                     }
                 }
-                catch (FormatException e)
+                catch (FormatException)
                 {
-                    Console.WriteLine(e);
                     Console.WriteLine("Dit is geen geldige invoer, voer opnieuw een getal in");
-                    loop();
                 }
 
             }
-            loop();
         }
 
     }
