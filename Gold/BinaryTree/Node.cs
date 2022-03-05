@@ -62,5 +62,18 @@ namespace BinaryTree
             if (Right != null)
                 Right.Search(inlist);
         }
+        /// <summary>
+        /// Method to lay the Tree out in a list
+        /// </summary>
+        /// <param name="inlist">Node list which will contain all nodes of the root</param>
+        public void Search(List<Node> inlist)
+        {
+            if (Left != null)
+                Left.Search(inlist);
+            if (this != null)
+                inlist.Add(this);
+            if (Right != null)
+                Right.Search(inlist);
+        }
     }
 }

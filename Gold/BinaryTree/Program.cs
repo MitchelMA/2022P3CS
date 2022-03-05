@@ -59,6 +59,17 @@ namespace BinaryTree
             {
                 Console.WriteLine(x);
             }
+            Console.WriteLine();
+
+            // create an empty Node-list
+            List<Node> treeNodes = new List<Node>();
+            // fill the list with the treenodes
+            root.Search(treeNodes);
+            // print the contents of the list
+            foreach(Node x in treeNodes)
+            {
+                Console.WriteLine(x.Value);
+            }
         }
     }
 }
