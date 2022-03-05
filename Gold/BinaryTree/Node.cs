@@ -18,20 +18,20 @@ namespace BinaryTree
         }
         public void Insert(int value)
         {
-            if (this != null)
+            if (this == null)
+                return;
+
+            if (value < this.Value)
             {
-                if (value < this.Value)
-                {
-                    if (this.Left == null)
-                        this.Left = new(value);
-                    else this.Left.Insert(value);
-                }
-                else if (value > this.Value)
-                {
-                    if (this.Right == null)
-                        this.Right = new(value);
-                    else this.Right.Insert(value);
-                }
+                if (this.Left == null)
+                    this.Left = new(value);
+                else this.Left.Insert(value);
+            }
+            else if (value > this.Value)
+            {
+                if (this.Right == null)
+                    this.Right = new(value);
+                else this.Right.Insert(value);
             }
         }
         /// <summary>
@@ -39,14 +39,14 @@ namespace BinaryTree
         /// </summary>
         public void Display()
         {
-            if(this != null)
-            {
-                if(this.Left != null)
-                    this.Left.Display();
-                Console.WriteLine(Value);
-                if(this.Right !=null)
-                    this.Right.Display();
-            }
+            if (this == null)
+                return;
+
+            if(this.Left != null)
+                this.Left.Display();
+            Console.WriteLine(Value);
+            if(this.Right !=null)
+                this.Right.Display();
         }
         /// <summary>
         /// Method to convert the contents to an integer list
