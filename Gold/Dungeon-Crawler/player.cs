@@ -1,3 +1,5 @@
+using System;
+using System.Threading;
 using Dungeon_Crawler.Scenes;
 using Dungeon_Crawler.Items;
 
@@ -77,29 +79,11 @@ namespace Dungeon_Crawler.Player
             {
                 // illegal move-cases
                 case '─':
-                    Listen = Program.KeyListen();
-                    CheckMove(Listen[0], Listen[1], level);
-                    return;
                 case '│':
-                    Listen = Program.KeyListen();
-                    CheckMove(Listen[0], Listen[1], level);
-                    return;
                 case '┌':
-                    Listen = Program.KeyListen();
-                    CheckMove(Listen[0], Listen[1], level);
-                    return;
                 case '┐':
-                    Listen = Program.KeyListen();
-                    CheckMove(Listen[0], Listen[1], level);
-                    return;
                 case '┘':
-                    Listen = Program.KeyListen();
-                    CheckMove(Listen[0], Listen[1], level);
-                    return;
                 case '└':
-                    Listen = Program.KeyListen();
-                    CheckMove(Listen[0], Listen[1], level);
-                    return;
                 case '#':
                     Listen = Program.KeyListen();
                     CheckMove(Listen[0], Listen[1], level);
